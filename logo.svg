@@ -1,6 +1,6 @@
 {
-	"charEl": "svg",
+	"charEl": "ooo",
 	"textColorEl": "green",
-	"shapeEl": "triangle",
-	"shapeColorEl": "blue"
+	"shapeEl": "square",
+	"shapeColorEl": "yellow"
 }
