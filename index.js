@@ -6,6 +6,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 //const { createDocument } = require('./lib/document');
 const  generateHTML = require('./lib/posthtml.js');
+//const html = require('index.html');
 
 
 // the filename to use is specified here
@@ -40,15 +41,18 @@ inquirer
         },
     ])
     .then((data) =>
-
-    //the actual call to write the user input to the README.md file
     {
         fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) =>
             err ? console.log(err) : console.log('Generated logo.svg')
         );
-        
+
         const htmlPageContent = generateHTML(data);
         fs.writeFile('index.html', htmlPageContent, (err) =>
             err ? console.log(err) : console.log('Successfully created index.html!')
+        );
+    
+
+        fs.writeFile(filename,htmlPageContent, (err) =>
+           err ? console.log(err) : console.log('Generated logo.svg!')
         );
     });
