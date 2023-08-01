@@ -19,3 +19,5 @@ GitHub.com https://github.com/agentpj/SVGLogoMaker
 The screencastify link:
 https://drive.google.com/file/d/1HJwBkbxMgrPvOaDT1JZKBrUAeEYcpZ-B/view
 
+Sample logo can be found under .lib/SampleSVGLogo.jpg
+
