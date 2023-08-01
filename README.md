@@ -16,6 +16,6 @@ The files included are index.js, index.html, ./lib/logo.svg, .lib/shapehtml.js, 
 
 GitHub.com https://github.com/agentpj/SVGLogoMaker
 
-A castify link:
-
+The screencastify link:
+https://drive.google.com/file/d/1HJwBkbxMgrPvOaDT1JZKBrUAeEYcpZ-B/view
 

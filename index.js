@@ -4,7 +4,7 @@
 // require the nodejs files
 const inquirer = require('inquirer');
 const fs = require('fs');
-// for the shape classes
+// for the shapes
 const ShapeCircle = require('./lib/shapehtml.js');
 const ShapeSquare = require('./lib/shapehtml.js');
 const ShapeTriangle = require('./lib/shapehtml.js');
@@ -12,9 +12,6 @@ const ShapeTriangle = require('./lib/shapehtml.js');
 
 // the filename to use is specified here
 var filename = './lib/logo.svg';
-
-
-
 
 // Ask user information to put in the README file
 inquirer
@@ -45,15 +42,12 @@ inquirer
     {
     switch (data.shapeEl) {
         case 'Circle':
-            console.log('circle')
             var userLogo = ShapeCircle(data);
         break;
         case 'Square':
-            console.log('square')
             var userLogo = ShapeSquare(data);
         break;
         default:
-            console.log('triangle')
             var userLogo = ShapeTriangle(data);
         break;
     }
@@ -64,7 +58,3 @@ inquirer
       err ? console.log(err) : console.log('Generated index.html'))
 }
     );
-
-
-   
-    
