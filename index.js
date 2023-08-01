@@ -1,16 +1,17 @@
-// this index.js if for the ReadMe Generator project
+// this index.js if for the SVG logo Maker
 // this includes installing NodeJS Inquirer
 
 // require the nodejs files
 const inquirer = require('inquirer');
 const fs = require('fs');
-//const { createDocument } = require('./lib/document');
-const  generateHTML = require('./lib/posthtml.js');
-//const html = require('index.html');
+// for the shape classes
+const ShapeCircle = require('./lib/shapehtml.js');
+const ShapeSquare = require('./lib/shapehtml.js');
+const ShapeTriangle = require('./lib/shapehtml.js');
 
 
 // the filename to use is specified here
-var filename = 'logo.svg';
+var filename = './lib/logo.svg';
 
 
 
@@ -30,9 +31,9 @@ inquirer
         },
         {
             type: 'list',
-            message: 'What is your preferred logo shape?',
+            message: 'What is your preferred logo shape? Use up/down arrow and enter to select',
             name: 'shapeEl',
-            choices: ['circle', 'triangle', 'square'],
+            choices: ['Circle', 'Triangle', 'Square'],
         },
         {
             type: 'input',
@@ -42,17 +43,28 @@ inquirer
     ])
     .then((data) =>
     {
-        fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) =>
-            err ? console.log(err) : console.log('Generated logo.svg')
-        );
+    switch (data.shapeEl) {
+        case 'Circle':
+            console.log('circle')
+            var userLogo = ShapeCircle(data);
+        break;
+        case 'Square':
+            console.log('square')
+            var userLogo = ShapeSquare(data);
+        break;
+        default:
+            console.log('triangle')
+            var userLogo = ShapeTriangle(data);
+        break;
+    }
+      fs.writeFile(filename,userLogo, (err) =>
+      err ? console.log(err) : console.log('Generated logo.svg!'))
 
-        const htmlPageContent = generateHTML(data);
-        fs.writeFile('index.html', htmlPageContent, (err) =>
-            err ? console.log(err) : console.log('Successfully created index.html!')
-        );
+      fs.writeFile('index.html',userLogo, (err) =>
+      err ? console.log(err) : console.log('Generated index.html'))
+}
+    );
+
+
+   
     
-
-        fs.writeFile(filename,htmlPageContent, (err) =>
-           err ? console.log(err) : console.log('Generated logo.svg!')
-        );
-    });
